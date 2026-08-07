@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>BÊÊÊ FOR LIBERTY</title>
+		<title>SHEEP ADVENTURE FOR LIBERTY</title>
 		<style>
 html, body, #canvas {
 	margin: 0;
@@ -38,7 +38,7 @@ body {
 }
 
 #status {
-	background-color: #242424;
+	background-color: #211240;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -92,7 +92,44 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-
+<style>
+body { background-color: #1d0f38 !important; }
+#status { background-color: #1d0f38 !important; }
+#status-progress {
+	-webkit-appearance: none; appearance: none;
+	height: 24px; max-width: 420px;
+	border: 3px solid #67e84c; border-radius: 16px;
+	background: #2c1758; overflow: hidden;
+	box-shadow: 0 0 22px rgba(110, 230, 76, 0.5);
+}
+#status-progress::-webkit-progress-bar { background: #2c1758; }
+#status-progress::-webkit-progress-value {
+	background: linear-gradient(180deg, #9bf578, #4fd42e);
+	border-radius: 10px;
+}
+#status-progress::-moz-progress-bar {
+	background: linear-gradient(180deg, #9bf578, #4fd42e);
+	border-radius: 10px;
+}
+#loading-label {
+	position: absolute; left: 0; right: 0; bottom: calc(10% + 36px);
+	text-align: center; color: #8df06c;
+	font-family: 'Noto Sans', Arial, sans-serif; font-weight: 800;
+	font-size: 22px; letter-spacing: 3px;
+	text-shadow: 0 0 14px rgba(110, 230, 76, 0.6);
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	var s = document.getElementById('status');
+	if (s) {
+		var l = document.createElement('div');
+		l.id = 'loading-label';
+		l.textContent = 'LOADING...';
+		s.appendChild(l);
+	}
+});
+</script>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -111,7 +148,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":6155636,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":9460036,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
