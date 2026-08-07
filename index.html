@@ -111,6 +111,11 @@ body { background-color: #1d0f38 !important; }
 	background: linear-gradient(180deg, #9bf578, #4fd42e);
 	border-radius: 10px;
 }
+#loading-logo {
+	position: absolute; top: 4%; left: 50%; transform: translateX(-50%);
+	width: min(42%, 400px); z-index: 1; pointer-events: none;
+	filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+}
 #loading-label {
 	position: absolute; left: 0; right: 0; bottom: calc(10% + 36px);
 	text-align: center; color: #8df06c;
@@ -127,6 +132,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		l.id = 'loading-label';
 		l.textContent = 'LOADING...';
 		s.appendChild(l);
+		var g = document.createElement('img');
+		g.id = 'loading-logo';
+		g.src = 'logo.png';
+		s.appendChild(g);
 	}
 });
 </script>
@@ -148,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":9460036,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":8733916,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
