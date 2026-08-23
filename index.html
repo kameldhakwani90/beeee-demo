@@ -117,10 +117,11 @@ body { background-color: #1d0f38 !important; }
 	filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
 }
 #status-splash {
-	position: absolute; inset: 0;
-	width: 100%; height: 100%;
-	max-width: none; max-height: none;
-	object-fit: cover; object-position: center 42%;
+	position: absolute !important; inset: 0 !important;
+	width: 100% !important; height: 100% !important;
+	max-width: none !important; max-height: none !important;
+	object-fit: cover !important; object-position: center 42% !important;
+	margin: 0 !important;
 }
 #loading-label {
 	position: absolute; left: 0; right: 0; bottom: calc(10% + 36px);
@@ -131,9 +132,17 @@ body { background-color: #1d0f38 !important; }
 }
 </style>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+function majSplash() {
 	var sp = document.getElementById('status-splash');
-	if (sp && window.innerHeight > window.innerWidth) { sp.src = 'splash_vertical.png'; }
+	if (!sp) { return; }
+	var v = window.innerHeight > window.innerWidth;
+	var src = v ? 'splash_vertical.png' : 'index.png';
+	if (sp.getAttribute('src') !== src) { sp.setAttribute('src', src); }
+}
+window.addEventListener('resize', majSplash);
+window.addEventListener('orientationchange', majSplash);
+document.addEventListener('DOMContentLoaded', function () {
+	majSplash();
 	var s = document.getElementById('status');
 	if (s) {
 		var l = document.createElement('div');
@@ -165,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":11537744,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":11544928,"index.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
